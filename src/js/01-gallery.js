@@ -1,7 +1,7 @@
 // Add imports above this line
-import { galleryItems } from './gallery-items';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+// import { galleryItems } from './gallery-items';
+// import SimpleLightbox from "simplelightbox";
+// import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
   galleryEl: document.querySelector(".gallery"),
@@ -21,10 +21,11 @@ const markupHtml = galleryItems
   })
   .join("");
 
-refs.galleryEl.insertAdjacentHTML("afterbegin", markupHtml);
+// refs.galleryEl.insertAdjacentHTML("afterbegin", markupHtml);
 refs.galleryEl.addEventListener("click", openModal);
+console.log(galleryEl);
 
-var lightbox;
+// var lightbox;
 
 function openModal(e) {
   e.preventDefault();
