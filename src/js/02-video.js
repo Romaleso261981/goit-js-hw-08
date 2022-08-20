@@ -8,7 +8,6 @@ const player = new Player(iframe);
 player.setCurrentTime(localStorage.getItem(LOCAL_STORAGE) || 0);
 
 const saveTime = data => {
-    console.log(data.seconds);
   localStorage.setItem(LOCAL_STORAGE, data.seconds);
 };
 
