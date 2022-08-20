@@ -24,7 +24,6 @@ const markupHtml = galleryItems
   .join("");
 
 refs.galleryEl.insertAdjacentHTML('afterbegin', markupHtml);
-console.log(refs.galleryEl);
 
 new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
