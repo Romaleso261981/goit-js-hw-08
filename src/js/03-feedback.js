@@ -27,25 +27,23 @@ function onFormSubmit(e) {
 }
 
 function populateMessageOutput() {
-  // debugger
   const savedMsg = localStorage.getItem(STORAGE_KEY);
   if(savedMsg === null) return 
   const newData = JSON.parse(savedMsg);
   console.log(savedMsg);
-  // console.log(newData);
   if (newData.email === undefined) {
-    console.log("в іфі ");
+    console.log("reset");
     refs.form.elements.email.value = ""
-    return
+    // return
   }
   refs.form.elements.email.value = newData.email;
 
   if (newData.message === undefined) {
-    console.log("в іфі месеч");
+    console.log("reset");
     refs.form.elements.message.value = ""
     return
   }
-  console.log("позаіфом месеч");
+  console.log(newData.message);
   refs.form.elements.message.value = newData.message;
  
 }
