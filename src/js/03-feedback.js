@@ -13,7 +13,8 @@ refs.form.addEventListener('input', throttle(onInput, 500));
 populateMessageOutput();
 
 function onInput(e) {
-  data[e.target.name] = e.target.value;
+  data.email = refs.email.value;
+  data.message = refs.message.value;
   const inputJson = JSON.stringify(data);
   localStorage.setItem(STORAGE_KEY, inputJson);
 }
@@ -28,22 +29,19 @@ function onFormSubmit(e) {
 
 function populateMessageOutput() {
   const savedMsg = localStorage.getItem(STORAGE_KEY);
-  if(savedMsg === null) return 
+  if (savedMsg === null) return;
   const newData = JSON.parse(savedMsg);
   console.log(savedMsg);
-  if (newData.email === undefined) {
-    console.log("reset");
-    refs.form.elements.email.value = ""
+  if (newData.email) {
+    refs.form.elements.email.value = newData.email;
     // return
+  } else {
+    refs.form.elements.email.value = '';
   }
-  refs.form.elements.email.value = newData.email;
 
-  if (newData.message === undefined) {
-    console.log("reset");
-    refs.form.elements.message.value = ""
-    return
+  if (newData.message) {
+    refs.form.elements.message.value = newData.message;
+  } else {
+    refs.form.elements.message.value = '';
   }
-  console.log(newData.message);
-  refs.form.elements.message.value = newData.message;
- 
 }
