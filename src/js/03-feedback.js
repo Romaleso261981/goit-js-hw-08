@@ -12,7 +12,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.form.addEventListener('input', throttle(onInput, 500));
 populateMessageOutput();
 
-function onInput(e) {
+function onInput() {
   data.email = refs.email.value;
   data.message = refs.message.value;
   const inputJson = JSON.stringify(data);
@@ -20,6 +20,7 @@ function onInput(e) {
 }
 
 function onFormSubmit(e) {
+  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
   e.preventDefault();
   e.target.reset();
   delete data.message;
@@ -31,7 +32,6 @@ function populateMessageOutput() {
   const savedMsg = localStorage.getItem(STORAGE_KEY);
   if (savedMsg === null) return;
   const newData = JSON.parse(savedMsg);
-  console.log(savedMsg);
   if (newData.email) {
     refs.form.elements.email.value = newData.email;
     // return
